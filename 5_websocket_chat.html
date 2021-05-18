@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Websocket echo chat</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary-color: rgb(166, 248, 248);
+            --hover-color: rgb(130, 247, 247);
+            --secondary-color: rgb(235, 243, 226);
+            --main-width: 450px;
+        }
+        body {
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: flex-start;
+            position: relative;
+        }
+        .container {
+            width: 500px;
+            height: auto;
+            background: var(--secondary-color);
+            padding: 5px;
+            padding-top: 15px;
+            margin-top: 5px;
+        }
+        header {
+            width: var(--main-width);
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+        }
+        .message {
+            border: var(--primary-color) 2px solid;
+            padding: 5px;
+            flex-grow: 2;
+        }
+        .message:focus {
+            outline: none;
+        }
+        .btn {
+            background: #ffffff;
+            padding: 5px 10px;
+            border: none;
+            background: var(--primary-color);
+            margin: 0 5px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: var(--hover-color);
+            /* opacity: 0.8; */
+        }
+        .btn:active {
+            background: var(--primary-color);
+        }
+        .messages {
+            width: var(--main-width);
+            min-height: 200px;
+            background: #fff;
+            border: var(--primary-color) 2px solid;
+            margin: auto;
+            margin-top: 15px;
+            padding: 10px 8px;
+        }
+        footer {
+            padding: 5px 25px;
+            color: #333;
+            font-size: 0.7rem;
+        }
+        .myMessage {
+            text-align: right;
+        }
+        .myMessage > span {
+            border-radius: 10px 10px 0px 10px;
+        }
+        .thatMessage {
+            text-align: left;
+        }
+        .thatMessage > span {
+            border-radius: 10px 10px 10px 0px;
+        }
+        .messages > p > span {
+            padding: 5px;
+            border: var(--primary-color) 2px solid;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <input type="text" class="message">
+            <button class="btn btnSend">Отправить</button>
+            <button class="btn btnGeo">Гео-локация</button>
+        </header>
+        <main>
+            <div class="messages">
+                <p class="myMessage"><span>Hello world!</span></p>
+                <p class="thatMessage"><span>Hi there!</span></p>
+            </div>
+        </main>
+        <footer><p>Copyright &copy; DZ 2021</p></footer>
+    </div>
+</body>
+</html>
