@@ -81,16 +81,25 @@
         .myMessage > span {
             border-radius: 10px 10px 0px 10px;
         }
-        .thatMessage {
+        .oppMessage {
             text-align: left;
         }
-        .thatMessage > span {
+        .oppMessage > span {
             border-radius: 10px 10px 10px 0px;
         }
-        .messages > p > span {
+        .messages > p > span, .messages > p > a {
             padding: 5px;
             border: var(--primary-color) 2px solid;
+            display: inline-block;
+            max-width: 75%;
+            margin: .2rem;
+            word-wrap: break-word;
         }
+        .messages > p > .time {
+            display: inline-block;
+            border: none;
+        }
+
     </style>
 </head>
 <body>
@@ -101,12 +110,10 @@
             <button class="btn btnGeo">Гео-локация</button>
         </header>
         <main>
-            <div class="messages">
-                <p class="myMessage"><span>Hello world!</span></p>
-                <p class="thatMessage"><span>Hi there!</span></p>
-            </div>
+            <div class="messages"></div>
         </main>
         <footer><p>Copyright &copy; DZ 2021</p></footer>
     </div>
+    <script src="./5_websocket_chat.js"></script>
 </body>
 </html>
