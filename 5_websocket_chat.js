@@ -5,6 +5,30 @@ const btnGeo = document.querySelector('.btnGeo');
 const messageInput = document.querySelector('.message');
 let websocket = new WebSocket('wss://echo.websocket.org/');
 
+chatWindow.ondragstart = () => false;
+
+chatWindow.addEventListener('mousedown', function(e) {
+    //console.log(e);
+    chatWindow.style.position = 'absolute';
+    let offX = e.offsetX;
+    let offY = e.offsetY;
+    //console.log(`1 ${offX} ${offY}`);
+    function moveWindow(event) {
+        chatWindow.style.left = event.pageX - offX + 'px';
+        chatWindow.style.top = event.pageY - offY + 'px';
+    }
+    function endMovement() {
+        document.body.removeEventListener('mousemove', moveWindow);
+        document.body.removeEventListener('mouseup', endMovement);
+    }
+    document.body.addEventListener('mouseup', endMovement);
+    let isContainer = e.target.classList.value.includes('container');
+    if(isContainer) {
+        document.body.addEventListener('mousemove', moveWindow);
+        
+    }
+});
+
 
 class Message {
     constructor(type) {
